@@ -1,7 +1,6 @@
 import { Notificator } from "./Notificator";
 import nodemailer from 'nodemailer';
 import { logger } from "../../../utils/container";
-import { InvalidArgumentsError } from "../errors/InvalidArgumentsError";
 import { NotificationError } from "../errors/NotificationError";
 
 export class EmailNotificator extends Notificator {
@@ -16,10 +15,8 @@ export class EmailNotificator extends Notificator {
         });
     }
 
-    notify = <T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): void => {
-        if (this.argsAreOk(sender, destinations, subject, payload)) return this.sendEmail(sender as string, destinations as string[], subject as string, payload as string);
-
-        this.throwError("Invalid data types. Expected all parameters to be strings.", new InvalidArgumentsError("Invalid data types. Expected all parameters to be strings."), this.constructor);
+    notify = (sender: string, destinations: string[], subject: string, payload: string): void => {
+        return this.sendEmail(sender, destinations, subject, payload);
     }
 
     sendEmail = (sender: string, destinations: string[], subject: string, payload: string): void => {
@@ -46,9 +43,5 @@ export class EmailNotificator extends Notificator {
 
             logger.logInfoFromEntity(successInfo, this.constructor);
         });
-    }
-
-    argsAreOk = <T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): boolean => {
-        return typeof sender === 'string' && typeof subject === 'string' && typeof payload === 'string' && destinations.every(dest => typeof dest === 'string');
     }
 }

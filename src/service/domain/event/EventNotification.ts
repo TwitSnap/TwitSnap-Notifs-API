@@ -1,11 +1,11 @@
 import { Notificator } from '../notification/Notificator';
 
-export abstract class EventNotification<T> {
+export abstract class EventNotification {
     private notificator: Notificator;
-    private readonly destinations: T[];
-    private readonly sender: T;
+    private readonly destinations: string[];
+    private readonly sender: string;
 
-    protected constructor(notificator: Notificator, destinations: T[], sender: T) {
+    protected constructor(notificator: Notificator, destinations: string[], sender: string) {
         this.notificator = notificator;
         this.destinations = destinations;
         this.sender = sender;

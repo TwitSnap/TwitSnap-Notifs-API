@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
 import {MissingEnvVarError} from "../service/application/errors/MissingEnvVarError";
-import {UnknownTypeError} from "../service/domain/errors/UnknownTypeError";
+import {UnknownTypeError} from "../service/application/errors/UnknownTypeError";
 
 /**
  * A utility class for various helper functions.

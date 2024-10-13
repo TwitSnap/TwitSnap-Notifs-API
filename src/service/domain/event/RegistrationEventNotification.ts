@@ -1,7 +1,7 @@
 import { EventNotification } from "./EventNotification";
 import { Notificator } from "../notification/Notificator";
 
-export class RegistrationEventNotification extends EventNotification<string> {
+export class RegistrationEventNotification extends EventNotification {
     private readonly registrationPin: string;
     private readonly username: string;
 
