@@ -15,10 +15,10 @@ export class RegistrationEventNotification extends EventNotification {
     protected getPayload = (): string => {
         return `
             <div style="padding: 20px; font-family: Arial, sans-serif; color: #333;">
-                <p>Hi Guido,<br><br></p>
+                <p>Hi ${this.username},<br><br></p>
                 <p>Thank you for registering at TwitSnap!<br> 
                 To confirm your registration, please use the following PIN:<br><br>
-                <strong style="font-size: 1.2em; color: #007BFF;">1234</strong><br><br></p>
+                <strong style="font-size: 1.2em; color: #007BFF;">${this.registrationPin}</strong><br><br></p>
                 <p>If you did not register at TwitSnap, please ignore this email.<br><br> 
                 Cheers,<br>
                 The TwitSnap Team 😊</p>
