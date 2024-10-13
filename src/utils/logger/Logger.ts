@@ -39,8 +39,8 @@ export class Logger {
         this.logInfo(formattedMessage);
     }
 
-    public logErrorFromEntity = (message: string, entity: Function): void => {
-        const formattedMessage = this.formatLogFromEntity(message, entity);
+    public logErrorFromEntity = (errorName: string, message: string, entity: Function): void => {
+        const formattedMessage = this.formatLogFromEntity((errorName + ": " + message), entity);
         this.logError(formattedMessage);
     }
 

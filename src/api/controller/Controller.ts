@@ -1,6 +1,7 @@
-import {Response, Request} from "express";
+import {Response, Request, NextFunction} from "express";
 import {HttpResponseSender} from "../HttpResponseSender";
 import {BadRequestError} from "../errors/BadRequestError";
+import {logger} from "../../utils/container";
 
 /**
  * Abstract base class for controllers that handle HTTP responses.
@@ -26,5 +27,10 @@ export abstract class Controller {
     protected getFieldOrBadRequestError = (req: Request, field: string): any => {
         if(!req.body[field]) throw new BadRequestError(`${field} is required`);
         return req.body[field];
+    }
+
+    protected throwError = (error: any, entity: Function, next: NextFunction): void => {
+        logger.logErrorFromEntity(error.constructor.name, error.message, entity);
+        next(error);
     }
 }

@@ -39,7 +39,7 @@ export class EventNotificationService {
     }
 
     private throwError = (logMessage: string, error: Error): never => {
-        logger.logErrorFromEntity(logMessage, this.constructor);
+        logger.logErrorFromEntity(error.constructor.name, logMessage, this.constructor);
         throw error;
     }
 }

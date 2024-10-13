@@ -10,8 +10,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(errorMiddleware);
 app.use(router);
+app.use(errorMiddleware);
 
 app.listen(PORT, () => {
     logger.logInfo(`Server is running on port ${PORT}`);

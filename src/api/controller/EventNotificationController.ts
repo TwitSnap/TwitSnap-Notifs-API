@@ -27,8 +27,8 @@ export class EventNotificationController extends Controller {
             this.eventNotificationService.createAndNotifyEventNotification(eventType, destinations, sender, notificator, params);
 
             return this.okNoContentResponse(res);
-        } catch (e) {
-            next(e);
+        } catch (e: any) {
+            this.throwError(e, EventNotificationController, next);
         }
     }
 

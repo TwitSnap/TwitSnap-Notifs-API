@@ -70,6 +70,6 @@ class ErrorHandler{
  * @param _next
  */
 export const errorMiddleware = (error: Error, _req: Request, res: Response, _next: NextFunction): void => {
-    logger.logErrorFromEntity(error.message, ErrorHandler);
+    logger.logErrorFromEntity(error.constructor.name, error.message, ErrorHandler);
     new ErrorHandler(error, res, new RFC7807ErrorFormatter(), new HttpResponseSender()).handle();
 }
