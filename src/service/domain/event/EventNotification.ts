@@ -13,11 +13,11 @@ export abstract class EventNotification<T> {
         this.sender = sender;
     }
 
-    protected abstract asString(): string;
+    protected abstract getPayload(): string;
 
     public notify(): void {
         this.notificationStrategies.forEach(strategy => {
-            strategy.sendNotification(this.sender, this.destinations, this.asString());
+            strategy.sendNotification(this.sender, this.destinations, this.getSubject(), this.getPayload());
         });
     }
 

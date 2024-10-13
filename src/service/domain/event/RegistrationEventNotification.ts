@@ -2,8 +2,8 @@ import { EventNotification } from "./EventNotification";
 import {Notificator} from "../notification/Notificator";
 
 export class RegistrationEventNotification extends EventNotification<string> {
-    private registrationPin: string;
-    private username: string;
+    private readonly registrationPin: string;
+    private readonly username: string;
 
     constructor(notificationStrategies: Notificator[], destinations: string[], sender: string, registrationPin: string, username: string) {
         super(notificationStrategies, destinations, sender);
@@ -11,9 +11,20 @@ export class RegistrationEventNotification extends EventNotification<string> {
         this.username = username;
     }
 
-    protected asString(): string {
-        //TODO
-        return "";
+    protected getPayload(): string {
+        return `
+            Hi ${this.username},
+    
+            Thank you for registering at TwitSnap! 
+            To confirm your registration, please use the following PIN:
+    
+            ${this.registrationPin}
+    
+            If you did not register at TwitSnap, please ignore this email.
+    
+            Cheers,
+            The TwitSnap Team
+        `;
     }
 
     protected getSubject(): string{
