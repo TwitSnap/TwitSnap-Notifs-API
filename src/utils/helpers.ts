@@ -1,6 +1,10 @@
 import { StatusCodes } from "http-status-codes";
 import {MissingEnvVarError} from "../service/application/errors/MissingEnvVarError";
 import {UnknownTypeError} from "../service/application/errors/UnknownTypeError";
+import {BadRequestError} from "../api/errors/BadRequestError";
+import {InvalidArgumentsError} from "../service/domain/errors/InvalidArgumentsError";
+import {TransportSetUpError} from "../service/domain/errors/TransportSetUpError";
+import {NotificationError} from "../service/domain/errors/NotificationError";
 
 /**
  * A utility class for various helper functions.
@@ -60,6 +64,10 @@ export class Helpers {
      */
     private static initializeErrorStatusCodeMap = (): void => {
         Helpers._errorStatusCodeMap.set(MissingEnvVarError, StatusCodes.INTERNAL_SERVER_ERROR);
+        Helpers._errorStatusCodeMap.set(TransportSetUpError, StatusCodes.INTERNAL_SERVER_ERROR);
+        Helpers._errorStatusCodeMap.set(NotificationError, StatusCodes.INTERNAL_SERVER_ERROR);
         Helpers._errorStatusCodeMap.set(UnknownTypeError, StatusCodes.BAD_REQUEST);
+        Helpers._errorStatusCodeMap.set(BadRequestError, StatusCodes.BAD_REQUEST);
+        Helpers._errorStatusCodeMap.set(InvalidArgumentsError, StatusCodes.BAD_REQUEST);
     }
 }
