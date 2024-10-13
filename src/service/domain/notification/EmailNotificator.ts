@@ -30,7 +30,7 @@ export class EmailNotificator extends Notificator {
             from: sender,
             to: destinations,
             subject: subject,
-            text: payload,
+            html: payload,
         };
 
         this.transporter.sendMail(mailOptions, (error, info) => {

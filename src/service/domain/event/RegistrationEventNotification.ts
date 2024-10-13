@@ -13,21 +13,21 @@ export class RegistrationEventNotification extends EventNotification {
 
     protected getPayload = (): string => {
         return `
-            Hi ${this.username},
-    
-            Thank you for registering at TwitSnap! 
-            To confirm your registration, please use the following PIN:
-    
-            ${this.registrationPin}
-    
-            If you did not register at TwitSnap, please ignore this email.
-    
-            Cheers,
-            The TwitSnap Team
+            <div style="padding: 20px;">
+                <p>Hi Guido,<br></p>
+                
+                </p>Thank you for registering at TwitSnap!<br>
+                To confirm your registration, please use the following PIN:<br><br>
+                <strong>1234</strong><br><br></p>
+                
+                </p>If you did not register at TwitSnap, please ignore this email.<br><br>
+                Cheers,<br>
+                The TwitSnap Team</p>
+            </div>
         `;
     }
 
     protected getSubject = (): string => {
-        return "TwitSnap - Confirm your registration!";
+        return "TwitSnap - Confirm your registration! 🎉";
     }
 }
