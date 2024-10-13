@@ -1,10 +1,13 @@
 import {Controller} from "./Controller";
-import {EventNotificationService} from "../service/application/EventNotificationService";
-import {HttpResponseSender} from "./HttpResponseSender";
+import {EventNotificationService} from "../../service/application/EventNotificationService";
+import {HttpResponseSender} from "../HttpResponseSender";
 import {NextFunction, Request, Response} from "express";
-import {BadRequestError} from "./errors/BadRequestError";
-import {Notificator} from "../service/domain/notification/Notificator";
+import {BadRequestError} from "../errors/BadRequestError";
+import {Notificator} from "../../service/domain/notification/Notificator";
+import {injectable} from "tsyringe";
+import {NotificatorService} from "../../service/application/NotificatorService";
 
+@injectable()
 export class EventNotificationController extends Controller {
     private eventNotificationService: EventNotificationService;
 
@@ -40,7 +43,7 @@ export class EventNotificationController extends Controller {
     private getNotificatorOrError = (req: Request): Notificator => {
         const notification = this.getFieldOrBadRequestError(req, 'notification');
         const notificator = this.getFieldFromObjectLiteralOrBadRequestError(notification, 'type') as string;
-        return Notificator.fromString(notificator);
+        return this.getNotificatorInstance(notificator);
     }
 
     private getDestinationsOrBadRequestError = (req: Request): string[] => {
@@ -55,6 +58,10 @@ export class EventNotificationController extends Controller {
 
     private getNotificationOrBadRequestError = (req: Request): {[key: string]: any} => {
         return this.getFieldOrBadRequestError(req, 'notification');
+    }
+
+    private getNotificatorInstance = (type: string): Notificator => {
+        return NotificatorService.getNotificatorFromString(type);
     }
 
     private getFieldFromObjectLiteralOrBadRequestError = (obj: {[key: string]: any}, field: string): any => {

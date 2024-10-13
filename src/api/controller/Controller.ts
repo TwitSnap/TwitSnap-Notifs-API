@@ -1,6 +1,6 @@
 import {Response, Request} from "express";
-import {HttpResponseSender} from "./HttpResponseSender";
-import {BadRequestError} from "./errors/BadRequestError";
+import {HttpResponseSender} from "../HttpResponseSender";
+import {BadRequestError} from "../errors/BadRequestError";
 
 /**
  * Abstract base class for controllers that handle HTTP responses.

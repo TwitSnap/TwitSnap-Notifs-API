@@ -11,6 +11,9 @@
       "experimentalDecorators": true,
       "strictPropertyInitialization": false,
       "emitDecoratorMetadata": true,
-      "resolveJsonModule": true
-    }
+      "resolveJsonModule": true,
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"],
+    "files": ["src/app.ts"]
 }
