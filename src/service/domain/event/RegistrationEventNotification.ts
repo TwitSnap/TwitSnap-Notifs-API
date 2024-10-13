@@ -14,18 +14,17 @@ export class RegistrationEventNotification extends EventNotification {
     // ? Todos los payloads a enviarse por mail deben ser en HTML y tener un logo de TwitSnap al final.
     protected getPayload = (): string => {
         return `
-            <div style="padding: 20px;">
-                <p>Hi Guido,<br></p>
-                
-                </p>Thank you for registering at TwitSnap!<br>
+            <div style="padding: 20px; font-family: Arial, sans-serif; color: #333;">
+                <p>Hi Guido,<br><br></p>
+                <p>Thank you for registering at TwitSnap!<br> 
                 To confirm your registration, please use the following PIN:<br><br>
-                <strong>1234</strong><br><br></p>
-                
-                </p>If you did not register at TwitSnap, please ignore this email.<br><br>
+                <strong style="font-size: 1.2em; color: #007BFF;">1234</strong><br><br></p>
+                <p>If you did not register at TwitSnap, please ignore this email.<br><br> 
                 Cheers,<br>
                 The TwitSnap Team 😊</p>
-
-                <div style="text-align:left; margin-top:10px;"> <img src="cid:TwitSnap-Logo" style="width:auto; height:auto; max-width:100px; max-height:100px; border-radius:15px;" alt="TwitSnap Logo"/> </div>
+                <div style="text-align:left; margin-top:10px;">
+                    <img src="cid:TwitSnap-Logo" style="width:auto; height:auto; max-width:100px; max-height:100px; border-radius:15px;" alt="TwitSnap Logo"/>
+                </div>
             </div>
         `;
     }
