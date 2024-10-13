@@ -1,6 +1,7 @@
 import { EmailNotificator } from "./EmailNotificator";
 import { UnknownTypeError } from "../../application/errors/UnknownTypeError";
 import { logger } from "../../../utils/container";
+import {EMAIL_PASSWORD, EMAIL_SERVICE, EMAIL_USER} from "../../../utils/config";
 
 export abstract class Notificator {
     public abstract notify(sender: string, destinations: string[], subject: string, payload: string): void;
@@ -10,12 +11,12 @@ export abstract class Notificator {
         throw error;
     }
 
-    /*static fromString = (string: string): Notificator => {
+    static fromString = (string: string): Notificator => {
         switch (string) {
             case "email":
-                return new EmailNotificator();
+                return new EmailNotificator(EMAIL_SERVICE, EMAIL_USER, EMAIL_PASSWORD);
             default:
-                throw new UnknownTypeError("Unknown notification strategy type.");
+                throw new UnknownTypeError("Unknown notificator type.");
         }
-    }*/
+    }
 }

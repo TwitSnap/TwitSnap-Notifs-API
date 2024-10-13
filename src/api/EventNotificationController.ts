@@ -3,6 +3,7 @@ import {EventNotificationService} from "../service/application/EventNotification
 import {HttpResponseSender} from "./HttpResponseSender";
 import {NextFunction, Request, Response} from "express";
 import {BadRequestError} from "./errors/BadRequestError";
+import {Notificator} from "../service/domain/notification/Notificator";
 
 export class EventNotificationController extends Controller {
     private eventNotificationService: EventNotificationService;
@@ -14,21 +15,49 @@ export class EventNotificationController extends Controller {
 
     public notifyEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         try {
-            const eventType = this.getFieldOrBadRequestError(req, 'eventType') as string;
-            const params = this.getFieldOrBadRequestError(req, 'params');
+            const eventType = this.getEventTypeOrBadRequestError(req);
+            const params = this.getParamsOrBadRequestError(req);
+            const destinations = this.getDestinationsOrBadRequestError(req);
+            const sender = this.getSenderOrBadRequestError(req);
+            const notificator = this.getNotificatorOrError(req);
 
-            const notification = this.getFieldOrBadRequestError(req, 'notification');
-            //TODO Obtener el notificationType.
-            //TODO Obtener el sender. Si no vino, usar uno por default.
-            //TODO Obtener el array de destinations.
+            this.eventNotificationService.createAndNotifyEventNotification(eventType, destinations, sender, notificator, params);
 
-            //TODO Invocar eventNotificationService.createAndNotifyEventNotification()
+            return this.okNoContentResponse(res);
         } catch (e) {
             next(e);
         }
     }
 
-    private getFieldFromObjectLiteralOrBadRequestError = <T>(obj: {[key: string]: T}, field: string): T => {
+    private getEventTypeOrBadRequestError = (req: Request): string => {
+        return this.getFieldOrBadRequestError(req, 'eventType') as string;
+    }
+
+    private getParamsOrBadRequestError = (req: Request): {[key: string]: string} => {
+        return this.getFieldOrBadRequestError(req, 'params') as {[key: string]: any};
+    }
+
+    private getNotificatorOrError = (req: Request): Notificator => {
+        const notification = this.getFieldOrBadRequestError(req, 'notification');
+        const notificator = this.getFieldFromObjectLiteralOrBadRequestError(notification, 'type') as string;
+        return Notificator.fromString(notificator);
+    }
+
+    private getDestinationsOrBadRequestError = (req: Request): string[] => {
+        const notification = this.getNotificationOrBadRequestError(req);
+        return this.getFieldFromObjectLiteralOrBadRequestError(notification, 'destinations') as string[];
+    }
+
+    private getSenderOrBadRequestError = (req: Request): string => {
+        const notification = this.getNotificationOrBadRequestError(req);
+        return this.getFieldFromObjectLiteralOrBadRequestError(notification, 'sender') as string;
+    }
+
+    private getNotificationOrBadRequestError = (req: Request): {[key: string]: any} => {
+        return this.getFieldOrBadRequestError(req, 'notification');
+    }
+
+    private getFieldFromObjectLiteralOrBadRequestError = (obj: {[key: string]: any}, field: string): any => {
         if(!obj[field]) throw new BadRequestError(`${field} is required`);
         return obj[field];
     }

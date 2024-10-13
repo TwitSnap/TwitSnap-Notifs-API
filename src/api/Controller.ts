@@ -23,7 +23,7 @@ export abstract class Controller {
         this._responseSender.okNoContentResponse(res);
     }
 
-    protected getFieldOrBadRequestError = <T>(req: Request, field: string): T => {
+    protected getFieldOrBadRequestError = (req: Request, field: string): any => {
         if(!req.body[field]) throw new BadRequestError(`${field} is required`);
         return req.body[field];
     }
