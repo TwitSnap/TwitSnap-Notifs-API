@@ -6,7 +6,12 @@ import {UnknownTypeError} from "./errors/UnknownTypeError";
 import {logger} from "../../utils/container";
 
 export class EventNotificationService {
-    public createEventNotification = (eventNotificationType: string, destinations: string[], sender: string, notificator: Notificator, eventParams: { [key: string]: string }): EventNotification => {
+    public createAndNotifyEventNotification = (eventNotificationType: string, destinations: string[], sender: string, notificator: Notificator, eventParams: {[key: string]: string }): void => {
+        const eventNotification = this.createEventNotification(eventNotificationType, destinations, sender, notificator, eventParams);
+        this.notifyEvent(eventNotification);
+    }
+
+    private createEventNotification = (eventNotificationType: string, destinations: string[], sender: string, notificator: Notificator, eventParams: {[key: string]: string }): EventNotification => {
         switch (eventNotificationType) {
             case 'registration':
                 return this.createRegistrationEventNotification(destinations, sender, notificator, eventParams);
@@ -29,7 +34,7 @@ export class EventNotificationService {
         return param;
     }
 
-    public notifyEvent = (eventNotification: EventNotification): void => {
+    private notifyEvent = (eventNotification: EventNotification): void => {
         eventNotification.notify();
     }
 
