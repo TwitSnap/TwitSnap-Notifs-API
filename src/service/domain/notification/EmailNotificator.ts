@@ -31,17 +31,28 @@ export class EmailNotificator extends Notificator {
             to: destinations,
             subject: subject,
             html: payload,
+            attachments: [
+                {
+                    filename: 'twitsnapLogo.png',
+                    path: 'resources/twitsnapLogo.png',
+                    cid: 'TwitSnap-Logo'
+                }
+            ]
         };
 
-        this.transporter.sendMail(mailOptions, (error, info) => {
-            if (error) this.throwError(`Error while sending email notification: ${error}`, new NotificationError("Error while sending email notification."), this.constructor);
+        try {
+            this.transporter.sendMail(mailOptions, (error, info) => {
+                if (error) this.throwError(`Error while sending email notification: ${error}`, new NotificationError("Error while sending email notification."), this.constructor);
 
-            const successInfo = `Email notification sent: 
-                SMTP Response: ${info.response}
-                Message ID: ${info.messageId}
-                Envelope (from -> to): ${info.envelope.from} -> ${info.envelope.to}`;
+                const successInfo = `Email notification sent: 
+                    SMTP Response: ${info.response}
+                    Message ID: ${info.messageId}
+                    Envelope (from -> to): ${info.envelope.from} -> ${info.envelope.to}`;
 
-            logger.logInfoFromEntity(successInfo, this.constructor);
-        });
+                logger.logInfoFromEntity(successInfo, this.constructor);
+            });
+        } catch (e) {
+            this.throwError(`Error while sending email notification: ${e}`, new NotificationError("Error while sending email notification."), this.constructor);
+        }
     }
 }
