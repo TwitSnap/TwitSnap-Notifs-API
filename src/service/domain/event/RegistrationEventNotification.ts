@@ -1,5 +1,5 @@
 import { EventNotification } from "./EventNotification";
-import {Notificator} from "../notification/Notificator";
+import { Notificator } from "../notification/Notificator";
 
 export class RegistrationEventNotification extends EventNotification<string> {
     private readonly registrationPin: string;
@@ -11,7 +11,7 @@ export class RegistrationEventNotification extends EventNotification<string> {
         this.username = username;
     }
 
-    protected getPayload(): string {
+    protected getPayload = (): string => {
         return `
             Hi ${this.username},
     
@@ -27,7 +27,7 @@ export class RegistrationEventNotification extends EventNotification<string> {
         `;
     }
 
-    protected getSubject(): string{
+    protected getSubject = (): string => {
         return "TwitSnap - Confirm your registration!";
     }
 }

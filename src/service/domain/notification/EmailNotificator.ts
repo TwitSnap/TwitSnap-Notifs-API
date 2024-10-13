@@ -1,8 +1,8 @@
-import {Notificator} from "./Notificator";
+import { Notificator } from "./Notificator";
 import nodemailer from 'nodemailer';
-import {logger} from "../../../utils/container";
-import {InvalidArgumentsError} from "../errors/InvalidArgumentsError";
-import {NotificationError} from "../errors/NotificationError";
+import { logger } from "../../../utils/container";
+import { InvalidArgumentsError } from "../errors/InvalidArgumentsError";
+import { NotificationError } from "../errors/NotificationError";
 
 export class EmailNotificator extends Notificator {
     private transporter: nodemailer.Transporter;
@@ -16,21 +16,18 @@ export class EmailNotificator extends Notificator {
         });
     }
 
-    sendNotification<T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): void {
-        if (this.argsAreOk(sender, destinations, subject, payload)) {
-            this.sendEmail(sender as string, destinations as string[], subject as string, payload as string);
-        } else {
-            this.throwError("Invalid data types. Expected all parameters to be strings.", new InvalidArgumentsError("Invalid data types. Expected all parameters to be strings."), this.constructor);
-        }
+    sendNotification = <T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): void => {
+        if (this.argsAreOk(sender, destinations, subject, payload)) return this.sendEmail(sender as string, destinations as string[], subject as string, payload as string);
+
+        this.throwError("Invalid data types. Expected all parameters to be strings.", new InvalidArgumentsError("Invalid data types. Expected all parameters to be strings."), this.constructor);
     }
 
-    sendEmail(sender: string, destinations: string[], subject: string, payload: string): void {
+    sendEmail = (sender: string, destinations: string[], subject: string, payload: string): void => {
         logger.logInfoFromEntity(`Sending email notification:
             From: ${sender}
             To: ${destinations}
             Subject: ${subject}
-            Payload: ${payload}`
-        , this.constructor);
+            Payload: ${payload}`, this.constructor);
 
         const mailOptions = {
             from: sender,
@@ -50,8 +47,8 @@ export class EmailNotificator extends Notificator {
             logger.logInfoFromEntity(successInfo, this.constructor);
         });
     }
-    
-    argsAreOk<T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): boolean {
+
+    argsAreOk = <T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): boolean => {
         return typeof sender === 'string' && typeof subject === 'string' && typeof payload === 'string' && destinations.every(dest => typeof dest === 'string');
     }
 }

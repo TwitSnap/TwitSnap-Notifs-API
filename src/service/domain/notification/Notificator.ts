@@ -1,6 +1,6 @@
-import {EmailNotificator} from "./EmailNotificator";
-import {UnknownTypeError} from "../errors/UnknownTypeError";
-import {logger} from "../../../utils/container";
+import { EmailNotificator } from "./EmailNotificator";
+import { UnknownTypeError } from "../errors/UnknownTypeError";
+import { logger } from "../../../utils/container";
 
 export abstract class Notificator {
     public abstract sendNotification<T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): void;
@@ -12,7 +12,7 @@ export abstract class Notificator {
         throw error;
     }
 
-    /*static fromString(string: string): Notificator{
+    /*static fromString = (string: string): Notificator => {
         switch (string) {
             case "email":
                 return new EmailNotificator();
