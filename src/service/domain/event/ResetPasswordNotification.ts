@@ -1,5 +1,6 @@
 import {Notificator} from "../notification/Notificator";
 import {EventNotification} from "./EventNotification";
+import {RESET_PASSWORD_URL} from "../../../utils/config";
 
 export class ResetPasswordNotification extends EventNotification {
     private readonly token: string;
@@ -15,13 +16,12 @@ export class ResetPasswordNotification extends EventNotification {
 
     // ? Todos los payloads a enviarse por mail deben ser en HTML y tener un logo de TwitSnap al final.
     protected getPayload = (): string => {
-        //TODO El link debe levantarse de un .env
         return `
             <div style="padding: 20px; font-family: Arial, sans-serif; color: #333;">
                 <p>Hi there!<br><br></p>
                 <p>We received a request to reset your password at TwitSnap.<br> 
                 To reset your password, please click the following link:<br><br>
-                <a href="http://localhost:3000/reset-password/${this.token}" style="color: #007BFF;">Reset Password</a><br><br></p>
+                <a href="${RESET_PASSWORD_URL}${this.token}" style="color: #007bff;">Reset password</a><br><br>
                 <p>If you did not request a password reset, please ignore this email.<br><br> 
                 Cheers,<br>
                 The TwitSnap Team 😊</p>

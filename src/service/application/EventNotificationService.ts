@@ -8,6 +8,7 @@ import {ResetPasswordNotification} from "../domain/event/ResetPasswordNotificati
 
 export class EventNotificationService {
     public createAndNotifyEventNotification = (eventNotificationType: string, destinations: string[], sender: string, notificator: Notificator, eventParams: {[key: string]: string }): void => {
+        logger.logInfoFromEntity(`Trying to create and notify event notification of type ${eventNotificationType}`, this.constructor);
         const eventNotification = this.createEventNotification(eventNotificationType, destinations, sender, notificator, eventParams);
         this.notifyEvent(eventNotification);
     }

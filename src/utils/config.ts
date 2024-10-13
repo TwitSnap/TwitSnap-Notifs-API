@@ -7,6 +7,7 @@ const requiredEnvVars = [
     "PORT",
     "LOG_ROUTE", "LOGGING", "LOG_ERROR", "LOG_DEBUG", "LOG_INFO",
     "EMAIL_SERVICE", "EMAIL_USER", "EMAIL_PASSWORD",
+    "RESET_PASSWORD_URL",
 ];
 
 Helpers.validateEnvVarsList(requiredEnvVars);
@@ -25,3 +26,6 @@ export const LOG_INFO = process.env.LOG_INFO;
 export const EMAIL_SERVICE = process.env.EMAIL_SERVICE as string;
 export const EMAIL_USER = process.env.EMAIL_USER as string;
 export const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD as string;
+
+// ? Reset password URL
+export const RESET_PASSWORD_URL = process.env.RESET_PASSWORD_URL as string;
