@@ -16,7 +16,7 @@ export class EmailNotificator extends Notificator {
         });
     }
 
-    sendNotification = <T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): void => {
+    notify = <T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): void => {
         if (this.argsAreOk(sender, destinations, subject, payload)) return this.sendEmail(sender as string, destinations as string[], subject as string, payload as string);
 
         this.throwError("Invalid data types. Expected all parameters to be strings.", new InvalidArgumentsError("Invalid data types. Expected all parameters to be strings."), this.constructor);

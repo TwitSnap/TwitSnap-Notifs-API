@@ -5,8 +5,8 @@ export class RegistrationEventNotification extends EventNotification<string> {
     private readonly registrationPin: string;
     private readonly username: string;
 
-    constructor(notificationStrategies: Notificator[], destinations: string[], sender: string, registrationPin: string, username: string) {
-        super(notificationStrategies, destinations, sender);
+    constructor(notificator: Notificator, destinations: string[], sender: string, registrationPin: string, username: string) {
+        super(notificator, destinations, sender);
         this.registrationPin = registrationPin;
         this.username = username;
     }

@@ -4,6 +4,6 @@ console.log('Happy developing ✨');
 //1. Codear EmailNotificationStrategy.sendNotification() DONE
 //2. Codear RegistrationEvent.asString() DONE
 //3. Codear EventService.createEvent()
-//4. Codear NotifyService.notifyEvent()
+//4. Codear NotifyService.notifyEvent() DONE
 //5. Codear POST /v1/event
 //6. Probar POST /v1/event

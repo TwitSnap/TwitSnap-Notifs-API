@@ -3,7 +3,7 @@ import { UnknownTypeError } from "../errors/UnknownTypeError";
 import { logger } from "../../../utils/container";
 
 export abstract class Notificator {
-    public abstract sendNotification<T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): void;
+    public abstract notify<T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): void;
 
     protected abstract argsAreOk<T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): boolean;
 
