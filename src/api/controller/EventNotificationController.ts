@@ -33,7 +33,7 @@ export class EventNotificationController extends Controller {
     }
 
     private getEventTypeOrBadRequestError = (req: Request): string => {
-        return this.getFieldOrBadRequestError(req, 'eventType') as string;
+        return this.getFieldOrBadRequestError(req, 'type') as string;
     }
 
     private getParamsOrBadRequestError = (req: Request): {[key: string]: string} => {
@@ -41,7 +41,7 @@ export class EventNotificationController extends Controller {
     }
 
     private getNotificatorOrError = (req: Request): Notificator => {
-        const notification = this.getFieldOrBadRequestError(req, 'notification');
+        const notification = this.getNotificationOrBadRequestError(req);
         const notificator = this.getFieldFromObjectLiteralOrBadRequestError(notification, 'type') as string;
         return this.getNotificatorInstance(notificator);
     }
@@ -57,7 +57,7 @@ export class EventNotificationController extends Controller {
     }
 
     private getNotificationOrBadRequestError = (req: Request): {[key: string]: any} => {
-        return this.getFieldOrBadRequestError(req, 'notification');
+        return this.getFieldOrBadRequestError(req, 'notifications');
     }
 
     private getNotificatorInstance = (type: string): Notificator => {

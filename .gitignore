@@ -14,6 +14,6 @@ yarn-error.log*
 
 .idea
 .env
-
+app.log
 /.idea/workspace.xml
 .idea/workspace.xml
