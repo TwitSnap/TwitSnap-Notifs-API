@@ -4,6 +4,7 @@ import {RegistrationEventNotification} from "../domain/event/RegistrationEventNo
 import {InvalidArgumentsError} from "../domain/errors/InvalidArgumentsError";
 import {UnknownTypeError} from "./errors/UnknownTypeError";
 import {logger} from "../../utils/container";
+import {ResetPasswordNotification} from "../domain/event/ResetPasswordNotification";
 
 export class EventNotificationService {
     public createAndNotifyEventNotification = (eventNotificationType: string, destinations: string[], sender: string, notificator: Notificator, eventParams: {[key: string]: string }): void => {
@@ -15,6 +16,8 @@ export class EventNotificationService {
         switch (eventNotificationType) {
             case 'registration':
                 return this.createRegistrationEventNotification(destinations, sender, notificator, eventParams);
+            case 'reset-password':
+                return this.createResetPasswordNotification(destinations, sender, notificator, eventParams);
             default:
                 return this.throwError(`Unknown event type: ${eventNotificationType}`, new UnknownTypeError(`Unknown event type: ${eventNotificationType}`));
         }
@@ -25,6 +28,11 @@ export class EventNotificationService {
         const pin = this.getParamOrError(eventParams, 'pin');
 
         return new RegistrationEventNotification(notificator, destinations, sender, pin, username);
+    }
+
+    private createResetPasswordNotification = (destinations: string[], sender: string, notificator: Notificator, eventParams: {[key: string]: string }): ResetPasswordNotification => {
+        const token = this.getParamOrError(eventParams, 'token');
+        return new ResetPasswordNotification(notificator, destinations, sender, token);
     }
 
     private getParamOrError = (eventParams: {[key: string]: string}, paramName: string): string => {
