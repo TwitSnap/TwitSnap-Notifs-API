@@ -1,11 +1,9 @@
 import { EmailNotificator } from "./EmailNotificator";
-import { UnknownTypeError } from "../errors/UnknownTypeError";
+import { UnknownTypeError } from "../../application/errors/UnknownTypeError";
 import { logger } from "../../../utils/container";
 
 export abstract class Notificator {
-    public abstract notify<T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): void;
-
-    protected abstract argsAreOk<T, Y>(sender: T, destinations: T[], subject: Y, payload: Y): boolean;
+    public abstract notify(sender: string, destinations: string[], subject: string, payload: string): void;
 
     protected throwError = (logMessage: string, error: Error, entity: Function): never => {
         logger.logErrorFromEntity(logMessage, entity);
