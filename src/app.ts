@@ -16,3 +16,7 @@ app.use(errorMiddleware);
 app.listen(PORT, () => {
     logger.logInfo(`Server is running on port ${PORT}`);
 });
+
+//TODO
+//1. Documentar
+//2. Agregar tests
