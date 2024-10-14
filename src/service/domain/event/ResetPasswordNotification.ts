@@ -16,7 +16,6 @@ export class ResetPasswordNotification extends EventNotification {
 
     // ? Todos los payloads a enviarse por mail deben ser en HTML y tener un logo de TwitSnap al final.
     protected getPayload = (): string => {
-        console.log(`${RESET_PASSWORD_URL}${this.token}`)
         return `
             <div style="padding: 20px; font-family: Arial, sans-serif; color: #333;">
                 <p>Hi there!<br><br></p>
