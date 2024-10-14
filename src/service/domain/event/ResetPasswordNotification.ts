@@ -23,6 +23,8 @@ export class ResetPasswordNotification extends EventNotification {
                 <p>We received a request to reset your password at TwitSnap.<br> 
                 To reset your password, please click the following link:<br><br>
                 <a href="${RESET_PASSWORD_URL}${this.token}" style="color: #007bff;">Reset password</a><br><br>
+                <p>If you're having trouble clicking the "Reset password" button, copy and paste the URL below into your web browser:<br>
+                <pre>${RESET_PASSWORD_URL}${this.token}</pre></p>
                 <p>If you did not request a password reset, please ignore this email.<br><br> 
                 Cheers,<br>
                 The TwitSnap Team 😊</p>
