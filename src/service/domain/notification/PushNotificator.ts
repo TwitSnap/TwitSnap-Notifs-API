@@ -24,15 +24,13 @@ export class PushNotificator extends Notificator {
 
         return await this.messaging.sendEachForMulticast(message as MulticastMessage)
             .then((response: BatchResponse) => {
-                logger.logInfoFromEntity(`${response.successCount} mensajes fueron enviados exitosamente.`, this.constructor);
+                logger.logInfoFromEntity(`${response.successCount} messages were sent successfully.`, this.constructor);
 
                 if (response.failureCount > 0) {
                     const failedTokens: string[] = [];
-                    response.responses.forEach((resp, idx) => {
-                        if (!resp.success) failedTokens.push(destinations[idx])
-                    });
+                    response.responses.forEach((resp, idx) => { if (!resp.success) failedTokens.push(destinations[idx]) });
 
-                    logger.logErrorFromEntity(this.constructor.name, `Error enviando mensajes a los siguientes tokens: ${failedTokens.join(', ')}`, this.constructor);
+                    logger.logErrorFromEntity(this.constructor.name, `Error when sending push notifications to the following tokens: ${failedTokens.join(', ')}`, this.constructor);
                 }
             })
             .catch((e: any) => {
