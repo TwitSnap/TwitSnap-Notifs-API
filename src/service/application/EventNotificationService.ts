@@ -30,14 +30,14 @@ export class EventNotificationService {
     }
 
     private createRegistrationEventNotification = (destinations: string[], sender: string, notificator: Notificator, eventParams: {[key: string]: string }): RegistrationEventNotification => {
-        const username = this.getParamOrError(eventParams, 'username');
-        const pin = this.getParamOrError(eventParams, 'pin');
+        const username: string = this.getParamOrError(eventParams, 'username');
+        const pin: string = this.getParamOrError(eventParams, 'pin');
 
         return new RegistrationEventNotification(notificator, destinations, sender, pin, username);
     }
 
     private createResetPasswordNotification = (destinations: string[], sender: string, notificator: Notificator, eventParams: {[key: string]: string }): ResetPasswordNotification => {
-        const token = this.getParamOrError(eventParams, 'token');
+        const token: string = this.getParamOrError(eventParams, 'token');
         return new ResetPasswordNotification(notificator, destinations, sender, token);
     }
 

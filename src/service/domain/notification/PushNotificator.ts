@@ -14,15 +14,12 @@ export class PushNotificator extends Notificator {
 
     // ? Sender must be null, destinations must be the device tokens, subject must be notification title and payload must be the messages body.
     public async notify(sender: string | null, destinations: string[], subject: string, payload: string): Promise<void> {
-        const message = {
-            notification: {
-                title: subject,
-                body: payload
-            },
-            tokens: destinations
+        const message: MulticastMessage = {
+            notification: {title: subject, body: payload},
+            tokens: destinations,
         };
 
-        return await this.messaging.sendEachForMulticast(message as MulticastMessage)
+        return await this.messaging.sendEachForMulticast(message)
             .then((response: BatchResponse) => {
                 logger.logInfoFromEntity(`${response.successCount} messages were sent successfully.`, this.constructor);
 
