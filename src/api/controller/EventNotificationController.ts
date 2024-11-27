@@ -21,10 +21,10 @@ export class EventNotificationController extends Controller {
             const eventType = this.getEventTypeOrBadRequestError(req);
             const params = this.getParamsOrBadRequestError(req);
             const destinations = this.getDestinationsOrBadRequestError(req);
-            const sender = this.getSenderOrBadRequestError(req);
+            const sender = this.getSenderOrNull(req);
             const notificator = this.getNotificatorOrError(req);
 
-            this.eventNotificationService.createAndNotifyEventNotification(eventType, destinations, sender, notificator, params);
+            await this.eventNotificationService.createAndNotifyEventNotification(eventType, destinations, sender, notificator, params);
 
             return this.okNoContentResponse(res);
         } catch (e: any) {
@@ -51,9 +51,9 @@ export class EventNotificationController extends Controller {
         return this.getFieldFromObjectLiteralOrBadRequestError(notification, 'destinations') as string[];
     }
 
-    private getSenderOrBadRequestError = (req: Request): string => {
+    private getSenderOrNull = (req: Request): string | null => {
         const notification = this.getNotificationOrBadRequestError(req);
-        return this.getFieldFromObjectLiteralOrBadRequestError(notification, 'sender') as string;
+        return this.getFieldFromObjectLiteralOrNull(notification, 'sender');
     }
 
     private getNotificationOrBadRequestError = (req: Request): {[key: string]: any} => {
@@ -66,6 +66,11 @@ export class EventNotificationController extends Controller {
 
     private getFieldFromObjectLiteralOrBadRequestError = (obj: {[key: string]: any}, field: string): any => {
         if(!obj[field]) throw new BadRequestError(`${field} is required`);
+        return obj[field];
+    }
+
+    private getFieldFromObjectLiteralOrNull = (obj: {[key: string]: any}, field: string): any => {
+        if(!obj[field]) return null;
         return obj[field];
     }
 }

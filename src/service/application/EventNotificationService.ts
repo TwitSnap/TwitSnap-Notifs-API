@@ -5,20 +5,25 @@ import {InvalidArgumentsError} from "../domain/errors/InvalidArgumentsError";
 import {UnknownTypeError} from "./errors/UnknownTypeError";
 import {logger} from "../../utils/container";
 import {ResetPasswordNotification} from "../domain/event/ResetPasswordNotification";
+import {PushNotification} from "../domain/event/PushNotification";
 
 export class EventNotificationService {
-    public createAndNotifyEventNotification = (eventNotificationType: string, destinations: string[], sender: string, notificator: Notificator, eventParams: {[key: string]: string }): void => {
+    public createAndNotifyEventNotification = async (eventNotificationType: string, destinations: string[], sender: string | null, notificator: Notificator, eventParams: { [key: string]: string }): Promise<void> => {
         logger.logInfoFromEntity(`Trying to create and notify event notification of type ${eventNotificationType}`, this.constructor);
         const eventNotification = this.createEventNotification(eventNotificationType, destinations, sender, notificator, eventParams);
-        this.notifyEvent(eventNotification);
+        await this.notifyEvent(eventNotification);
     }
 
-    private createEventNotification = (eventNotificationType: string, destinations: string[], sender: string, notificator: Notificator, eventParams: {[key: string]: string }): EventNotification => {
+    private createEventNotification = (eventNotificationType: string, destinations: string[], sender: string | null, notificator: Notificator, eventParams: {[key: string]: string }): EventNotification => {
         switch (eventNotificationType) {
             case 'registration':
-                return this.createRegistrationEventNotification(destinations, sender, notificator, eventParams);
+                if (!sender) this.throwError('Sender is required for registration event notification.', new InvalidArgumentsError('Sender is required for registration event notification.'));
+                return this.createRegistrationEventNotification(destinations, sender as string, notificator, eventParams);
             case 'reset-password':
-                return this.createResetPasswordNotification(destinations, sender, notificator, eventParams);
+                if (!sender) this.throwError('Sender is required for reset password event notification.', new InvalidArgumentsError('Sender is required for reset password event notification.'));
+                return this.createResetPasswordNotification(destinations, sender as string, notificator, eventParams);
+            case 'push':
+                return this.createPushNotification(destinations, notificator, eventParams);
             default:
                 return this.throwError(`Unknown event type: ${eventNotificationType}`, new UnknownTypeError(`Unknown event type: ${eventNotificationType}`));
         }
@@ -36,15 +41,22 @@ export class EventNotificationService {
         return new ResetPasswordNotification(notificator, destinations, sender, token);
     }
 
-    private getParamOrError = (eventParams: {[key: string]: string}, paramName: string): string => {
+    private createPushNotification = (destinations: string[], notificator: Notificator, eventParams: {[key: string]: string }): PushNotification => {
+        const title: string = this.getParamOrError(eventParams, 'title');
+        const body: string = this.getParamOrError(eventParams, 'body');
+
+        return new PushNotification(notificator, destinations, body, title);
+    }
+
+    private getParamOrError = (eventParams: {[key: string]: string}, paramName: string): any => {
         const param = eventParams[paramName];
         if (!param) this.throwError(`Missing required argument: ${paramName} is required.`, new InvalidArgumentsError(`Missing required argument: ${paramName} is required.`));
 
         return param;
     }
 
-    private notifyEvent = (eventNotification: EventNotification): void => {
-        eventNotification.notify();
+    private notifyEvent = async (eventNotification: EventNotification): Promise<void> => {
+        await eventNotification.notify();
     }
 
     private throwError = (logMessage: string, error: Error): never => {

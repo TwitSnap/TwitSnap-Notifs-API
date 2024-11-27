@@ -15,11 +15,12 @@ export class EmailNotificator extends Notificator {
         });
     }
 
-    notify = (sender: string, destinations: string[], subject: string, payload: string): void => {
-        return this.sendEmail(sender, destinations, subject, payload);
+    notify = (sender: string | null, destinations: string[], subject: string, payload: string): Promise<void> => {
+        if (!sender) this.throwError('Sender is required for email notification.', new NotificationError('Sender is required for email notification.'), this.constructor);
+        return this.sendEmail(sender as string, destinations, subject, payload);
     }
 
-    sendEmail = (sender: string, destinations: string[], subject: string, payload: string): void => {
+    sendEmail = (sender: string, destinations: string[], subject: string, payload: string): Promise<void> => {
         logger.logInfoFromEntity(`Sending email notification:
             From: ${sender}
             To: ${destinations}
@@ -54,5 +55,7 @@ export class EmailNotificator extends Notificator {
         } catch (e) {
             this.throwError(`Error while sending email notification: ${e}`, new NotificationError("Error while sending email notification."), this.constructor);
         }
+
+        return Promise.resolve();
     }
 }

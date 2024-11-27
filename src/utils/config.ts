@@ -7,7 +7,7 @@ const requiredEnvVars = [
     "PORT",
     "LOG_ROUTE", "LOGGING", "LOG_ERROR", "LOG_DEBUG", "LOG_INFO",
     "EMAIL_SERVICE", "EMAIL_USER", "EMAIL_PASSWORD",
-    "RESET_PASSWORD_URL",
+    "RESET_PASSWORD_URL", "FIREBASE_JSON_PATH"
 ];
 
 Helpers.validateEnvVarsList(requiredEnvVars);
@@ -29,3 +29,6 @@ export const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD as string;
 
 // ? Reset password URL
 export const RESET_PASSWORD_URL = process.env.RESET_PASSWORD_URL as string;
+
+// ? Firebase config
+export const FIREBASE_JSON_PATH = process.env.FIREBASE_JSON_PATH as string;
