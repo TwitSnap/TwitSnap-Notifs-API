@@ -17,7 +17,7 @@ COPY ./src ./src
 COPY ./resources ./resources
 
 #Add the firebase admin sdk file
-COPY twitsnap-82671-firebase-adminsdk-q3c3c-ce4e728673.json ./
+COPY twitsnap-82671-firebase-adminsdk-q3c3c-2f7f11ee24.json ./
 
 # Build the TypeScript code
 RUN npm run build
