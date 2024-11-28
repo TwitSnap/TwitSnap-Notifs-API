@@ -5,15 +5,12 @@ import {BadRequestError} from "../api/errors/BadRequestError";
 import {InvalidArgumentsError} from "../service/domain/errors/InvalidArgumentsError";
 import {TransportSetUpError} from "../service/domain/errors/TransportSetUpError";
 import {NotificationError} from "../service/domain/errors/NotificationError";
-import * as admin from "firebase-admin";
-import {FIREBASE_JSON_PATH} from "./config";
 
 /**
  * A utility class for various helper functions.
  */
 export class Helpers {
     private static _errorStatusCodeMap: Map<Function, StatusCodes> = new Map<Function, StatusCodes>();
-    public static firebaseAdmin: admin.app.App;
 
     /**
      * Validates a list of environment variables.
@@ -72,19 +69,5 @@ export class Helpers {
         Helpers._errorStatusCodeMap.set(UnknownTypeError, StatusCodes.BAD_REQUEST);
         Helpers._errorStatusCodeMap.set(BadRequestError, StatusCodes.BAD_REQUEST);
         Helpers._errorStatusCodeMap.set(InvalidArgumentsError, StatusCodes.BAD_REQUEST);
-    }
-
-    public static initializeFirebaseAdmin = (): void => {
-        const serviceAccount = require(FIREBASE_JSON_PATH);
-
-        admin.initializeApp({
-            credential: admin.credential.cert(serviceAccount),
-        });
-
-        Helpers.firebaseAdmin = admin.app();
-    }
-
-    public static getFirebaseMessaging = (): admin.messaging.Messaging => {
-        return Helpers.firebaseAdmin.messaging();
     }
 }
