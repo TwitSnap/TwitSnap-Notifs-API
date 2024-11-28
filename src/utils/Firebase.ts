@@ -17,6 +17,7 @@ export class Firebase {
         return admin.app();
     }
 
+
     public static getFirebaseMessaging = (): admin.messaging.Messaging => {
         if (!Firebase.adminApp) Firebase.setAdminApp();
         return Firebase.adminApp.messaging();
