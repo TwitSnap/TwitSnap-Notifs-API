@@ -25,9 +25,16 @@ export class PushNotificator extends Notificator {
 
                 if (response.failureCount > 0) {
                     const failedTokens: string[] = [];
-                    response.responses.forEach((resp, idx) => { if (!resp.success) failedTokens.push(destinations[idx]) });
+                    const errorDetails: string[] = [];
 
-                    logger.logErrorFromEntity(this.constructor.name, `Error when sending push notifications to the following tokens: ${failedTokens.join(', ')}`, this.constructor);
+                    response.responses.forEach((resp, idx) => {
+                        if (!resp.success) {
+                            failedTokens.push(destinations[idx]);
+                            errorDetails.push(`Token: ${destinations[idx]}, Error: ${resp.error?.message}`);
+                        }
+                    });
+
+                    logger.logErrorFromEntity(this.constructor.name, `Error when sending push notifications to the following tokens: ${failedTokens.join(", ")}. Details: ${errorDetails.join(" | ")}`, this.constructor);
                 }
             })
             .catch((e: any) => {
