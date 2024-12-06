@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5ea74388-e39d-47ce-8649-c3b54e3234d9" name="Changes" comment="Update readme">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controller/Controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controller/Controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controller/EventNotificationController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controller/EventNotificationController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/config.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gmenendez0&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TwitSnap/TwitSnap-Notifs-API.git&quot;,
+    &quot;accountId&quot;: &quot;59b861e3-3379-4c6a-8fd9-4e31eedaa1da&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2nLxhJxlS0UO198ZLt3ITtnOCbi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.EventNotificationController.ts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/guido/Escritorio/TwitSnap-Notifs-API/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/api/controller" />
+      <recent name="$PROJECT_DIR$/src/service/application/errors" />
+      <recent name="$PROJECT_DIR$/src/service/domain/event" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/service" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23339.15" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ea74388-e39d-47ce-8649-c3b54e3234d9" name="Changes" comment="" />
+      <created>1728766274293</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728766274293</updated>
+      <workItem from="1728766275332" duration="99000" />
+      <workItem from="1728766482269" duration="1197000" />
+      <workItem from="1728768807872" duration="11753000" />
+      <workItem from="1728815270975" duration="10640000" />
+      <workItem from="1728826010187" duration="10581000" />
+      <workItem from="1728852176438" duration="610000" />
+      <workItem from="1728852795309" duration="5000" />
+      <workItem from="1728853234897" duration="66000" />
+      <workItem from="1728853387711" duration="676000" />
+      <workItem from="1728854074443" duration="3000" />
+      <workItem from="1728895718785" duration="84000" />
+      <workItem from="1728895956730" duration="1361000" />
+      <workItem from="1728897578973" duration="122000" />
+      <workItem from="1732746148155" duration="7906000" />
+      <workItem from="1732756203135" duration="3484000" />
+      <workItem from="1733468461889" duration="352000" />
+      <workItem from="1733470598723" duration="741000" />
+      <workItem from="1733492492183" duration="637000" />
+    </task>
+    <task id="LOCAL-00001" summary="Set up events, notifStrategies, logger and dependencies">
+      <option name="closed" value="true" />
+      <created>1728777686770</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1728777686770</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add to-dos">
+      <option name="closed" value="true" />
+      <created>1728778143746</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728778143746</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implement EmailNotificator.ts">
+      <option name="closed" value="true" />
+      <created>1728781842107</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728781842107</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fix bugs">
+      <option name="closed" value="true" />
+      <created>1728815657910</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728815657910</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add RegistrationEventNotification.ts payload">
+      <option name="closed" value="true" />
+      <created>1728816015204</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1728816015204</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Code cleanup">
+      <option name="closed" value="true" />
+      <created>1728816617755</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1728816617755</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Refactor">
+      <option name="closed" value="true" />
+      <created>1728817591644</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728817591644</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Refactor to avoid casting">
+      <option name="closed" value="true" />
+      <created>1728819400629</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1728819400629</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Refactor to avoid casting">
+      <option name="closed" value="true" />
+      <created>1728819405786</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1728819405786</updated>
+    </task>
+    <task id="LOCAL-00010" summary="code upgrades at EventNotificationService">
+      <option name="closed" value="true" />
+      <created>1728819700590</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1728819700591</updated>
+    </task>
+    <task id="LOCAL-00011" summary="code upgrades at EventNotificationService">
+      <option name="closed" value="true" />
+      <created>1728820000177</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1728820000177</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Set up remote layer base">
+      <option name="closed" value="true" />
+      <created>1728820814684</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1728820814684</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add cors">
+      <option name="closed" value="true" />
+      <created>1728821427219</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1728821427219</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Set up EventNotificationController.ts">
+      <option name="closed" value="true" />
+      <created>1728822574135</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1728822574135</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Finish EventNotificationController.ts">
+      <option name="closed" value="true" />
+      <created>1728825431733</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1728825431733</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fix bugs, server is now runnable">
+      <option name="closed" value="true" />
+      <created>1728827058450</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1728827058450</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Email notifs are working properly">
+      <option name="closed" value="true" />
+      <created>1728831092539</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1728831092539</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fix bugs">
+      <option name="closed" value="true" />
+      <created>1728832299637</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1728832299637</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Change email payload from plain text to html">
+      <option name="closed" value="true" />
+      <created>1728833724631</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1728833724631</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Improve email sent">
+      <option name="closed" value="true" />
+      <created>1728834879457</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1728834879457</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Improve email sent">
+      <option name="closed" value="true" />
+      <created>1728834976525</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1728834976525</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Fix bugs">
+      <option name="closed" value="true" />
+      <created>1728835187183</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1728835187183</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add to-dos and dockerfile">
+      <option name="closed" value="true" />
+      <created>1728835635291</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1728835635291</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Update .env.example">
+      <option name="closed" value="true" />
+      <created>1728835658632</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1728835658632</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Add ResetPasswordNotification.ts">
+      <option name="closed" value="true" />
+      <created>1728852694727</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1728852694727</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Add .env var">
+      <option name="closed" value="true" />
+      <created>1728854016957</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1728854016957</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Update envVars">
+      <option name="closed" value="true" />
+      <created>1728895779028</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1728895779028</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Fix bugs">
+      <option name="closed" value="true" />
+      <created>1728896205273</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1728896205273</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Workaround to gmail not accepting deep urls">
+      <option name="closed" value="true" />
+      <created>1728897078473</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1728897078473</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Remove unused code">
+      <option name="closed" value="true" />
+      <created>1728897600719</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1728897600719</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Add push notifications">
+      <option name="closed" value="true" />
+      <created>1732751502031</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1732751502031</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Improve logging">
+      <option name="closed" value="true" />
+      <created>1732751591567</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1732751591567</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Fix bugs">
+      <option name="closed" value="true" />
+      <created>1732751822098</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1732751822098</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Fix bugs (circular dependencies)">
+      <option name="closed" value="true" />
+      <created>1732752855501</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1732752855501</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Add firebase .json (SHOULD NOT BE ADDED BUT WE DO NOT HAVE SSH ACCESS TO HOST IN RENDER)">
+      <option name="closed" value="true" />
+      <created>1732753093426</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1732753093426</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Remove .json">
+      <option name="closed" value="true" />
+      <created>1732753165148</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1732753165148</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Add secret for firebase (SHOULD NOT BE ADDED BUT WE DONT HAVE SSH ACCESS TO RENDER VM HOST)">
+      <option name="closed" value="true" />
+      <created>1732753251655</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1732753251655</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Update dockerfile">
+      <option name="closed" value="true" />
+      <created>1732753482903</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1732753482903</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Improve logging">
+      <option name="closed" value="true" />
+      <created>1732757004639</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1732757004639</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Update firebase certificate">
+      <option name="closed" value="true" />
+      <created>1732757866859</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1732757866859</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Add new cert">
+      <option name="closed" value="true" />
+      <created>1732757875061</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1732757875061</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Add new cert">
+      <option name="closed" value="true" />
+      <created>1732757909412</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1732757909412</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Add new cert">
+      <option name="closed" value="true" />
+      <created>1732758134340</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1732758134340</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Remove cert">
+      <option name="closed" value="true" />
+      <created>1733460439322</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1733460439322</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Update readme">
+      <option name="closed" value="true" />
+      <created>1733471331264</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1733471331264</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Set up EventNotificationController.ts" />
+    <MESSAGE value="Finish EventNotificationController.ts" />
+    <MESSAGE value="Fix bugs, server is now runnable" />
+    <MESSAGE value="Email notifs are working properly" />
+    <MESSAGE value="Change email payload from plain text to html" />
+    <MESSAGE value="Improve email sent" />
+    <MESSAGE value="Add to-dos and dockerfile" />
+    <MESSAGE value="Update .env.example" />
+    <MESSAGE value="Add ResetPasswordNotification.ts" />
+    <MESSAGE value="Add .env var" />
+    <MESSAGE value="Update envVars" />
+    <MESSAGE value="Workaround to gmail not accepting deep urls" />
+    <MESSAGE value="Remove unused code" />
+    <MESSAGE value="Add push notifications" />
+    <MESSAGE value="Fix bugs" />
+    <MESSAGE value="Fix bugs (circular dependencies)" />
+    <MESSAGE value="Add firebase .json (SHOULD NOT BE ADDED BUT WE DO NOT HAVE SSH ACCESS TO HOST IN RENDER)" />
+    <MESSAGE value="Remove .json" />
+    <MESSAGE value="Add secret for firebase (SHOULD NOT BE ADDED BUT WE DONT HAVE SSH ACCESS TO RENDER VM HOST)" />
+    <MESSAGE value="Update dockerfile" />
+    <MESSAGE value="Improve logging" />
+    <MESSAGE value="Update firebase certificate" />
+    <MESSAGE value="Add new cert" />
+    <MESSAGE value="Remove cert" />
+    <MESSAGE value="Update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update readme" />
+  </component>
+</project>

@@ -5,6 +5,7 @@ import {BadRequestError} from "../api/errors/BadRequestError";
 import {InvalidArgumentsError} from "../service/domain/errors/InvalidArgumentsError";
 import {TransportSetUpError} from "../service/domain/errors/TransportSetUpError";
 import {NotificationError} from "../service/domain/errors/NotificationError";
+import {InvalidApiKeyError} from "../api/errors/InvalidApiKeyError";
 
 /**
  * A utility class for various helper functions.
@@ -69,5 +70,6 @@ export class Helpers {
         Helpers._errorStatusCodeMap.set(UnknownTypeError, StatusCodes.BAD_REQUEST);
         Helpers._errorStatusCodeMap.set(BadRequestError, StatusCodes.BAD_REQUEST);
         Helpers._errorStatusCodeMap.set(InvalidArgumentsError, StatusCodes.BAD_REQUEST);
+        Helpers._errorStatusCodeMap.set(InvalidApiKeyError, StatusCodes.UNAUTHORIZED);
     }
 }

@@ -18,6 +18,8 @@ export class EventNotificationController extends Controller {
 
     public notifyEvent = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         try {
+            await this.checkApiKey(req);
+
             const eventType = this.getEventTypeOrBadRequestError(req);
             const params = this.getParamsOrBadRequestError(req);
             const destinations = this.getDestinationsOrBadRequestError(req);

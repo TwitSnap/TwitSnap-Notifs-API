@@ -1,7 +1,9 @@
-import {Response, Request, NextFunction} from "express";
+import {NextFunction, Request, Response} from "express";
 import {HttpResponseSender} from "../HttpResponseSender";
 import {BadRequestError} from "../errors/BadRequestError";
 import {logger} from "../../utils/container";
+import {VALIDATE_API_KEY_URL} from "../../utils/config";
+import {InvalidApiKeyError} from "../errors/InvalidApiKeyError";
 
 /**
  * Abstract base class for controllers that handle HTTP responses.
@@ -32,5 +34,27 @@ export abstract class Controller {
     protected throwError = (error: any, entity: Function, next: NextFunction): void => {
         logger.logErrorFromEntity(error.constructor.name, error.message, entity);
         next(error);
+    }
+
+    protected checkApiKey = async (req: Request): Promise<void> => {
+        const apiKey = this.getApiKeyHeaderOrBadRequestError(req);
+        const isValid = await this.apiKeyIsValid(apiKey);
+        if(!isValid) throw new InvalidApiKeyError('Invalid api_key');
+    }
+
+    private getApiKeyHeaderOrBadRequestError = (req: Request): string => {
+        if(!req.headers.api_key) throw new BadRequestError('api_key header is required');
+        return req.headers.api_key as string;
+    }
+    private apiKeyIsValid = async (apiKey: string): Promise<boolean> => {
+        const url = VALIDATE_API_KEY_URL + apiKey;
+
+        try {
+            const response = await fetch(url);
+            return await response.json();
+        } catch (e: any) {
+            logger.logErrorFromEntity(e.constructor.name, e.message, this.constructor);
+            return false;
+        }
     }
 }
