@@ -43,9 +43,10 @@ export abstract class Controller {
     }
 
     private getApiKeyHeaderOrBadRequestError = (req: Request): string => {
-        if(!req.headers.api_key) throw new BadRequestError('api_key header is required');
+        if(!req.headers.api_key) throw new InvalidApiKeyError('api_key header is required');
         return req.headers.api_key as string;
     }
+
     private apiKeyIsValid = async (apiKey: string): Promise<boolean> => {
         const url = VALIDATE_API_KEY_URL + apiKey;
 
