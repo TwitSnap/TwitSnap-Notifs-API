@@ -55,7 +55,7 @@ export abstract class Controller {
         try {
             const response = await fetch(url);
             const jsonRes = await response.json();
-            logger.logInfoFromEntity(`api_key validation response: ${jsonRes}`, this.constructor);
+            logger.logInfoFromEntity(`api_key validation response: ${JSON.stringify(jsonRes)}`, this.constructor);
 
             return jsonRes;
         } catch (e: any) {
