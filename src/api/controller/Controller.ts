@@ -57,7 +57,7 @@ export abstract class Controller {
             const jsonRes = await response.json();
             logger.logInfoFromEntity(`api_key validation response: ${JSON.stringify(jsonRes)}`, this.constructor);
 
-            return jsonRes;
+            return jsonRes.isValid;
         } catch (e: any) {
             logger.logErrorFromEntity(e.constructor.name, e.message, this.constructor);
             return false;
