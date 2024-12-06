@@ -39,6 +39,8 @@ export abstract class Controller {
     protected checkApiKey = async (req: Request): Promise<void> => {
         const apiKey = this.getApiKeyHeaderOrBadRequestError(req);
         const isValid = await this.apiKeyIsValid(apiKey);
+        logger.logInfoFromEntity(`api_key ${apiKey} is ${isValid ? 'valid' : 'invalid'}`, this.constructor);
+
         if(!isValid) throw new InvalidApiKeyError('Invalid api_key');
     }
 
@@ -52,6 +54,8 @@ export abstract class Controller {
 
         try {
             const response = await fetch(url);
+            logger.logInfoFromEntity(`api_key validation response: ${await response.json()}`, this.constructor);
+
             return await response.json();
         } catch (e: any) {
             logger.logErrorFromEntity(e.constructor.name, e.message, this.constructor);
